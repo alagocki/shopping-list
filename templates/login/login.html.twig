@@ -1,0 +1,74 @@
+{% extends 'base-login.html.twig' %}
+
+{# ... #}
+
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-3">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center">
+                                        <img src="{{ asset('build/images/Logo_Digital_Art_1.png') }}" class="img-fluid w-96" alt="Lagocki Digital Art Logo">
+                                    </div>
+                                    <div class="h-8">&nbsp;</div>
+                                    <form action="{{ path('login') }}" method="post">
+
+                                        <p>Bitte melden Sie sich bei Ihrem Konto an</p>
+                                        <div class="h-32">&nbsp;</div>
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="username" name="_username" class="form-control" placeholder="Email Addresse" value="{{ last_username }}"/>
+                                            <label class="form-label" for="username">Loginname</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="password" name="_password" class="form-control" />
+                                            <label class="form-label" for="form2Example22">Passwort</label>
+                                        </div>
+
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                            <button class="btn btn-primary btn-block login-link" type="submit">Log in</button>
+                                            <a class="text-muted" href="#!">Passwort vergessen?</a>
+                                        </div>
+{#                                        <div class="d-flex align-items-center justify-content-center pb-4">#}
+{#                                            <p class="mb-0 me-2">Don't have an account?</p>#}
+{#                                            <a class="btn btn-outline-danger" href="/register">Create new</a>#}
+{#                                        </div>#}
+
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                &nbsp;
+                            </div>
+{#                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">#}
+{#                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">#}
+{#                                    <h4 class="mb-4">We are more than just a Family</h4>#}
+{#                                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>#}
+{#                                </div>#}
+{#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}

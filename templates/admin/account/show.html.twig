@@ -1,0 +1,79 @@
+{% extends 'base-digital-art.html.twig' %}
+
+{% block title %}Account :: {{ parent() }}{% endblock %}
+
+{% block breadcrumb %}
+	<li class="breadcrumb-item active">Dashboard</li>
+{% endblock %}
+
+{% block body %}
+
+	<!-- Example row of columns -->
+
+	<div class="card">
+		<div class="card-header">
+			<h2>Account</h2>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-6">
+
+					<div class="row">
+						<div class="col-4 text-right text-bold">Vorname</div>
+						<div class="col-8">{{ firstname }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">Nachname</div>
+						<div class="col-8">{{ lastname }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">Straße/Nummer</div>
+						<div class="col-8">{{ street }} {{ number }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">PLZ</div>
+						<div class="col-8">{{ zip }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">Ort</div>
+						<div class="col-8">{{ city }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">Handynr.</div>
+						<div class="col-8">{{ handy }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">Email</div>
+						<div class="col-8">{{ email }}</div>
+					</div>
+					<div class="row">
+						<div class="col-4 text-right text-bold">User ID</div>
+						<div class="col-8">{{ userid }}</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					&nbsp;
+				</div>
+				<div class="col-md-3">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+		<div class="card-footer">
+			<a href="{{ url('account_edit', {id: userid}) }}" class="btn btn-sm btn-secondary"><i class="fa fa-reply fa-fw mr-2"></i> bearbeiten</a>
+		</div>
+	</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+
+	</script>
+{% endblock %}

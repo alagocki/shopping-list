@@ -1,0 +1,54 @@
+{% extends 'base-digital-art.html.twig' %}
+
+{% block title %}Shooting :: {{ parent() }}{% endblock %}
+
+{% block breadcrumb %}
+	<li class="breadcrumb-item active">Neues Shooting erstellen</li>
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="card">
+		<div class="card-header">
+			<h2>Neues Shooting - Digital-Art</h2>
+		</div>
+		<div class="card-body">
+			<!-- Example row of columns -->
+
+			{% if choosen_customer is empty %}
+				<div class="row">
+					<div class="col-md-12">
+						<form method="post" action="{{ url('shooting') }}" name="choose_customer" class="bg-light p-3 border-bottom">
+
+									<label for="customer" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Bitte einen Kunden w&auml;hlen:</label>
+									<select id="customer" name="customer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+										<option value="9999999">-</option>
+										{% for cust in customer %}
+											<option value="{{ cust.id }}">{{ cust.firstname }} {{ cust.lastname }}</option>
+										{% endfor %}
+									</select><br>
+									<input type="submit" value="OK" class="submit-button">
+
+						</form>
+					</div>
+				</div>
+			{% else %}
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Neues Shooting erstellen</h2>
+						<p>Kunde: {{ customer.firstname }} {{ customer.lastname }}</p>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+
+	</script>
+{% endblock %}

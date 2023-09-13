@@ -1,0 +1,109 @@
+{% if is_granted('ROLE_USER') %}
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="{{ url('digital-art') }}">Andreas Lagocki - Digital Art&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bilder</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						{% if is_granted('ROLE_ADMIN') %}
+							<li>
+								<a class="dropdown-item" href="{{ url('shooting') }}">Neues Shooting anlegen</a>
+							</li>
+							<li>
+								<hr />
+							</li>
+						{% endif %}
+						<li>
+							<a class="dropdown-item" href="#">Bilder Hochladen</a>
+						</li>
+{#						<li>#}
+{#							<a class="dropdown-item" href="">z.B. Rewe</a>#}
+{#						</li>#}
+					</ul>
+
+
+				</li>
+
+{#				<li class="nav-item">#}
+{#					<a class="nav-link" href="#">Link</a>#}
+{#				</li>#}
+{#				<li class="nav-item">#}
+{#					<a class="nav-link disabled" href="#">Disabled</a>#}
+{#				</li>#}
+
+			</ul>
+
+
+
+
+
+			{% if app.user is not empty %}
+				<div class="dropdown user-info">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ app.user.userIdentifier }}
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						{% if is_granted('ROLE_ADMIN') %}
+							<li>
+								<a class="dropdown-item" href="{{ url('account_show') }}">Account</a>
+							</li>
+							<li>
+								<hr />
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ url('mainpage') }}">Frontpage</a>
+							</li>
+							<li>
+								<hr />
+							</li>
+						{% endif %}
+						<li>
+							<a class="dropdown-item" href="/logout">Logout</a>
+						</li>
+					</ul>
+				</div>
+			{% endif %}
+
+		</div>
+	</nav>
+{% elseif is_granted('ROLE_CUSTOMER') %}
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="/">Moll Tools&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Daten</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown01">
+						<a class="dropdown-item" href="#">neuer CSV Export zu Excel</a>
+					</div>
+				</li>
+
+			</ul>
+
+			{% if app.user is not empty %}
+				<div class="dropdown user-info">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ app.user.userIdentifier }}
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li>
+							<a class="dropdown-item" href="/logout">Logout</a>
+						</li>
+					</ul>
+				</div>
+			{% endif %}
+
+		</div>
+	</nav>
+{% endif %}

@@ -1,0 +1,73 @@
+{% extends 'base-digital-art.html.twig' %}
+
+{% block title %}Account :: {{ parent() }}{% endblock %}
+
+{% block breadcrumb %}
+	<li class="breadcrumb-item active">Dashboard</li>
+{% endblock %}
+
+{% block body %}
+
+	<!-- Example row of columns -->
+	{{ form_start(form) }}
+	<div class="card">
+		<div class="card-header">
+			<h2>Account bearbeiten</h2>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-6">
+
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.firstname) }}</div>
+						<div class="col-9">{{ form_widget(form.firstname) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.lastname) }}</div>
+						<div class="col-9">{{ form_widget(form.lastname) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.street) }}</div>
+						<div class="col-9">{{ form_widget(form.street) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.number) }}</div>
+						<div class="col-9">{{ form_widget(form.number) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.zip) }}</div>
+						<div class="col-9">{{ form_widget(form.zip) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.city) }}</div>
+						<div class="col-9">{{ form_widget(form.city) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.handy) }}</div>
+						<div class="col-9">{{ form_widget(form.handy) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.email) }}</div>
+						<div class="col-9">{{ form_widget(form.email) }}</div>
+					</div>
+					<div class="row margin-10-0">
+						<div class="col-3">{{ form_label(form.password) }}</div>
+						<div class="col-9">{{ form_widget(form.password) }}</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					&nbsp;
+				</div>
+				<div class="col-md-3">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+		<div class="card-footer">
+			<button type="submit" id="submit" class="btn btn-sm btn-primary float-right"><i class="fa fa-save fa-fw mr-2"></i> speichern</button>
+			<a href="{{ url('account_show') }}" class="btn btn-sm btn-secondary"><i class="fa fa-reply fa-fw mr-2"></i> zurück</a>
+		</div>
+	</div>
+	{{ form_end(form) }}
+
+{% endblock %}
