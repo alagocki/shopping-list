@@ -27,20 +27,21 @@ security:
                 login_path: login
                 check_path: login
                 default_target_path: mainpage
-#            json_login:
-#                # api_login is a route we will create below
-#                check_path: api_login
+            json_login:
+                # api_login is a route we will create below
+                check_path: api_login
             logout:
                 path: app_logout
             access_token:
                 token_handler: App\Security\ApiTokenHandler
-#        api:
-#            pattern: ^/api
-#            stateless: true
-#            security: true
-#            provider: users_in_memory
-#            custom_authenticators:
-#                - App\Security\ApiKeyAuthenticator
+
+        api:
+            pattern: ^/api
+            stateless: true
+            security: true
+            provider: users_in_memory
+            custom_authenticators:
+                - App\Security\ApiKeyAuthenticator
 #        apidocs:
 #            pattern: ^/api/doc
 #            lazy: true
