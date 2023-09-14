@@ -43,8 +43,7 @@
         "symfonycasts/verify-email-bundle": "^1.13",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "webonyx/graphql-php": "^15.6",
-        "ext-http": "*"
+        "webonyx/graphql-php": "^15.6"
     },
     "config": {
         "allow-plugins": {
